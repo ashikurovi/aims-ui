@@ -14,6 +14,7 @@ const nextConfig = {
       { protocol: "https", hostname: "squadlog-cdn.up.railway.app", pathname: "/uploads/**" },
       { protocol: "http", hostname: "squadlog-cdn.up.railway.app", pathname: "/uploads/**" },
       { protocol: "https", hostname: "e-cdn.vercel.app", pathname: "/uploads/**" },
+      { protocol: "http", hostname: "e-cdn.vercel.app", pathname: "/uploads/**" },
       // Backend uploads / external CDN (Top Products, Media, etc.)
       { protocol: "https", hostname: "squadcart-backend.up.railway.app", pathname: "/uploads/**" },
       { protocol: "http", hostname: "squadcart-backend.up.railway.app", pathname: "/uploads/**" },
