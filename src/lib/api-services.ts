@@ -91,7 +91,7 @@ export interface PromoCode {
     isActive: boolean;
     companyId: string;
     // Optional list of product IDs this promo applies to
-    productIds?: number[];
+    productIds?: Array<number | string>;
 }
 
 /**
@@ -162,11 +162,19 @@ export async function getSystemUserByCompanyId(
         );
 
         const payload: ApiResponse<SystemUser[]> | SystemUser = response.data;
-        const data = Array.isArray(payload) ? payload : (payload && typeof payload === 'object' && 'data' in payload) ? payload.data : payload;
+        const data = Array.isArray(payload)
+            ? payload
+            : (payload && typeof payload === "object" && "data" in payload)
+            ? payload.data
+            : payload;
         const users: SystemUser[] = Array.isArray(data) ? data : data ? [data as SystemUser] : [];
-        const matched = users.find((user) => user.companyId === companyIdParam);
 
-        return matched ?? users[0] ?? null;
+        const matchedOwner = users.find(
+            (user) => user.companyId === companyIdParam && user.role === "SYSTEM_OWNER",
+        );
+        const matchedAny = users.find((user) => user.companyId === companyIdParam);
+
+        return matchedOwner ?? matchedAny ?? users[0] ?? null;
     } catch (error: unknown) {
         console.error("Error fetching system user:", error);
         const err = error as { code?: string; message?: string; cause?: { code?: string } };

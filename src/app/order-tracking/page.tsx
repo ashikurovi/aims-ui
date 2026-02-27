@@ -34,15 +34,15 @@ interface TrackedOrder {
 const getStatusColor = (status: string) => {
   switch (status.toLowerCase()) {
     case "delivered":
-      return "bg-green-100 text-green-800";
+      return "bg-emerald-100 text-emerald-800";
     case "pending":
-      return "bg-yellow-100 text-yellow-800";
+      return "bg-amber-50 text-amber-700";
     case "cancelled":
       return "bg-red-100 text-red-800";
     case "shipped":
-      return "bg-blue-100 text-blue-800";
+      return "bg-sky-100 text-sky-800";
     case "paid":
-      return "bg-purple-100 text-purple-800";
+      return "bg-emerald-50 text-emerald-700";
     default:
       return "bg-gray-100 text-gray-800";
   }
@@ -145,15 +145,15 @@ function OrderTrackingContent() {
 
   return (
     <section className="max-w-3xl mx-auto px-4 py-8 sm:py-10">
-      <div className="rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-orange-400 text-white shadow-md px-4 py-5 sm:px-6 sm:py-6">
+      <div className="rounded-2xl bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-400 text-white shadow-md px-4 py-5 sm:px-6 sm:py-6">
         <div className="space-y-1.5">
-          <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-pink-100/90">
+          <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-emerald-100/90">
             Order tracking
           </p>
           <h1 className="text-xl md:text-2xl font-semibold">
             আপনার অর্ডার ট্র্যাক করুন
           </h1>
-          <p className="text-xs sm:text-sm text-pink-50/95 max-w-xl">
+          <p className="text-xs sm:text-sm text-emerald-50/95 max-w-xl">
             ইনভয়েসে দেওয়া ট্র্যাকিং আইডি লিখে আপনার অর্ডারের বর্তমান স্ট্যাটাস,
             ডেলিভারি তথ্য এবং পেমেন্ট স্ট্যাটাস দেখে নিন।
           </p>
@@ -168,12 +168,12 @@ function OrderTrackingContent() {
             value={trackingId}
             onChange={(e) => setTrackingId(e.target.value)}
             placeholder="ট্র্যাকিং আইডি লিখুন"
-            className="w-full rounded-full border border-pink-200 bg-white/90 px-4 py-2 text-xs sm:text-sm text-gray-900 placeholder:text-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent"
+            className="w-full rounded-full border border-emerald-200 bg-white/90 px-4 py-2 text-xs sm:text-sm text-gray-900 placeholder:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:border-transparent"
           />
           <button
             type="submit"
             disabled={loading || !trackingId.trim()}
-            className="inline-flex items-center justify-center rounded-full bg-white/90 px-4 py-2 text-xs sm:text-sm font-semibold text-pink-600 hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+            className="inline-flex items-center justify-center rounded-full bg-white/90 px-4 py-2 text-xs sm:text-sm font-semibold text-emerald-700 hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
           >
             {loading ? "ট্র্যাক করা হচ্ছে..." : "অর্ডার ট্র্যাক করুন"}
           </button>

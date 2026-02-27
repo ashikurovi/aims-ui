@@ -9,7 +9,7 @@ import {
 } from "react-icons/md";
 import { RiHome5Line } from "react-icons/ri";
 
-const menuItems = [
+export const menuItems = [
   {
     id: 1,
     name: "Dashboard",

@@ -67,6 +67,13 @@ const CheckoutContent = () => {
   const [initialPromoFromQuery, setInitialPromoFromQuery] = useState<string | null>(null);
   const hasAppliedInitialPromo = useRef(false);
 
+  const getPromoProductIds = (p: PromoCode): number[] => {
+    if (!Array.isArray((p as any).productIds)) return [];
+    return (p.productIds as Array<number | string>)
+      .map((v) => Number(v))
+      .filter((n) => Number.isFinite(n));
+  };
+
   // Fetch product from query params and promo code
   useEffect(() => {
     const rawProductId = searchParams.get("productId");
@@ -253,14 +260,14 @@ const CheckoutContent = () => {
   const total = Math.max(subtotal - discount, 0);
   const grandTotal = total + shippingCharge;
 
-  // Auto apply promo from query once items are ready
+  // Auto apply promo from query once order subtotal is ready
   useEffect(() => {
     if (!initialPromoFromQuery || hasAppliedInitialPromo.current) return;
-    if (!items.length) return;
+    if (subtotal <= 0) return;
 
     hasAppliedInitialPromo.current = true;
     applyPromoCore(initialPromoFromQuery);
-  }, [initialPromoFromQuery, items]);
+  }, [initialPromoFromQuery, subtotal]);
   const applyPromoCore = async (code: string) => {
     const trimmed = code.trim();
     if (!trimmed) return;
@@ -277,7 +284,6 @@ const CheckoutContent = () => {
       let promos: PromoCode[] = availablePromos;
       if (!promos.length) {
         promos = await getPublicPromocodes(companyId);
-        setAvailablePromos(promos);
       }
       const now = new Date();
       const match = promos.find(
@@ -312,7 +318,8 @@ const CheckoutContent = () => {
       // Ensure promo is applicable to at least one product in the cart, if productIds restriction exists
       if (Array.isArray(match.productIds) && match.productIds.length > 0) {
         const itemProductIds = items.map((i) => i.product.id);
-        const applicable = match.productIds.some((id) =>
+        const promoProductIds = getPromoProductIds(match);
+        const applicable = promoProductIds.some((id) =>
           itemProductIds.includes(id),
         );
         if (!applicable) {
@@ -364,28 +371,32 @@ const CheckoutContent = () => {
           return true;
         });
 
-        // Further filter promos to those applicable to current items (if productIds is set)
-        const itemProductIds = items.map((i) => i.product.id);
-        const relevantPromos = activePromos.filter((p) => {
-          if (!Array.isArray(p.productIds) || p.productIds.length === 0) {
-            return true; // global promo
-          }
-          return p.productIds.some((id) => itemProductIds.includes(id));
-        });
+        // Product checkout হলে: শুধু ওই প্রোডাক্টে assigned promo codes দেখাবে
+        const hasSingleProductParam = !!searchParams.get("productId");
+        const targetProductId = queryProduct?.product?.id;
+
+        let relevantPromos: PromoCode[] = [];
+
+        if (hasSingleProductParam && targetProductId) {
+          relevantPromos = activePromos.filter(
+            (p) =>
+              Array.isArray(p.productIds) &&
+              p.productIds.length > 0 &&
+              getPromoProductIds(p).includes(targetProductId),
+          );
+        } else {
+          // Regular checkout: show promos relevant to current cart items (including global promos)
+          const itemProductIds = items.map((i) => i.product.id);
+          relevantPromos = activePromos.filter((p) => {
+            if (!Array.isArray(p.productIds) || p.productIds.length === 0) {
+              return true; // global promo
+            }
+            const promoProductIds = getPromoProductIds(p);
+            return promoProductIds.some((id) => itemProductIds.includes(id));
+          });
+        }
 
         setAvailablePromos(relevantPromos);
-
-        // If user didn't choose any code yet, auto-select a promo
-        if (!promo && !promoCode && relevantPromos.length > 0) {
-          // Prefer a promo that already meets min order requirement (if any)
-          const autoPromo =
-            relevantPromos.find(
-              (p) => !p.minOrderAmount || subtotal >= p.minOrderAmount,
-            ) || relevantPromos[0];
-
-          setPromoCode(autoPromo.code);
-          setPromo(autoPromo);
-        }
       } catch (error) {
         console.error("Failed to load promo codes", error);
         setAvailablePromos([]);
@@ -395,7 +406,7 @@ const CheckoutContent = () => {
     };
 
     fetchPromos();
-  }, [searchParams, userSession?.companyId, items, subtotal]);
+  }, [searchParams, userSession?.companyId, items, queryProduct?.product?.id]);
 
   const handleOrder = async () => {
     if (!userSession?.accessToken || !userSession?.userId) {
@@ -528,7 +539,7 @@ const Checkout = () => {
     <Suspense
       fallback={
         <div className="min-h-[300px] flex items-center justify-center">
-          <p className="text-sm text-gray-600">Checkout লোড হচ্ছে...</p>
+          <p className="text-sm text-primary">Checkout লোড হচ্ছে...</p>
         </div>
       }
     >

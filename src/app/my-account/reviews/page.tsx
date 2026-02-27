@@ -146,9 +146,9 @@ export default function Reviews() {
     return (
       <section className="w-full flex justify-center items-center min-h-[320px]">
         <div className="max-w-md w-full text-center space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full bg-pink-50 px-4 py-1 border border-pink-100">
-            <span className="h-2 w-2 rounded-full bg-pink-500 animate-pulse" />
-            <span className="text-[11px] font-medium text-pink-700">
+          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1 border border-emerald-100">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[11px] font-medium text-emerald-700">
               Loading your reviews
             </span>
           </div>
@@ -162,28 +162,28 @@ export default function Reviews() {
 
   return (
     <div className="w-full flex flex-col gap-5">
-      <div className="rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-orange-400 text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
+      <div className="rounded-2xl bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-400 text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="space-y-1.5">
-            <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-pink-100/90">
+            <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-emerald-100/90">
               My account
             </p>
             <h2 className="text-xl md:text-2xl font-semibold">Reviews</h2>
-            <p className="text-xs sm:text-sm text-pink-50/95 max-w-md">
+            <p className="text-xs sm:text-sm text-emerald-50/95 max-w-md">
               আপনার কেনা পণ্যের অভিজ্ঞতা শেয়ার করুন এবং পুরনো রিভিউগুলো এক
               জায়গায় দেখুন।
             </p>
           </div>
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs sm:text-sm">
-            <FiStar className="text-pink-100" />
+            <FiStar className="text-emerald-100" />
             <span>রেটিং দিয়ে অন্য ক্রেতাদের সাহায্য করুন</span>
           </div>
         </div>
       </div>
 
-      <div className="bg-white/95 rounded-2xl shadow-sm border border-pink-50 px-4 py-4 sm:px-5 sm:py-5">
+      <div className="bg-white/95 rounded-2xl shadow-sm border border-emerald-50 px-4 py-4 sm:px-5 sm:py-5">
         <h3 className="text-lg md:text-xl font-semibold mb-4 text-gray-900 flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-pink-50 text-pink-600">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
             <FiMessageCircle size={18} />
           </span>
           <span>Write a review</span>
@@ -289,9 +289,9 @@ export default function Reviews() {
         </div>
       </div>
 
-      <div className="bg-white/95 rounded-2xl shadow-sm border border-pink-50 px-4 py-4 sm:px-5 sm:py-5">
+      <div className="bg-white/95 rounded-2xl shadow-sm border border-emerald-50 px-4 py-4 sm:px-5 sm:py-5">
         <h3 className="text-lg md:text-xl font-semibold mb-4 text-gray-900 flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-pink-50 text-pink-600">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
             <FiStar size={18} />
           </span>
           <span>My reviews</span>

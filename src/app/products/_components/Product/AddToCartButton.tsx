@@ -53,7 +53,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
     <button
       onClick={handleAdd}
       disabled={loading}
-      className="flex items-center justify-center gap-2 bg-black hover:bg-primary transition-all ease-linear duration-200 px-4 py-1.5 rounded-3xl text-white sm:text-base text-sm disabled:opacity-70"
+      className="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 transition-all ease-linear duration-200 px-4 py-1.5 rounded-3xl text-white sm:text-base text-sm disabled:opacity-70"
     >
       <span>{loading ? "Adding..." : "কার্টে যোগ করুন -"}</span>
       <div className=" flex items-center">

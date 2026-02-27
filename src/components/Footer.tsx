@@ -104,35 +104,17 @@ const Footer = () => {
               <MdOutlineEmail />
             </Link>
             <Link
-              href="/"
+              href="https://www.facebook.com/profile.php?id=61578248000957"
+              target="_blank"
+              rel="noopener noreferrer"
               className=" border rounded-full p-2 text-lg hover:border-rose-500 hover:text-rose-500 transition-all duration-200 ease-linear cursor-pointer"
             >
               <FaFacebookF />
             </Link>
-            <Link
-              href="/"
-              className=" border rounded-full p-2 text-lg hover:border-rose-500 hover:text-rose-500 transition-all duration-200 ease-linear cursor-pointer"
-            >
-              <FaXTwitter />
-            </Link>
-            <Link
-              href="/"
-              className=" border rounded-full p-2 text-lg hover:border-rose-500 hover:text-rose-500 transition-all duration-200 ease-linear cursor-pointer"
-            >
-              <FaInstagram />
-            </Link>
-            <Link
-              href="/"
-              className=" border rounded-full p-2 text-lg hover:border-rose-500 hover:text-rose-500 transition-all duration-200 ease-linear cursor-pointer"
-            >
-              <FaTiktok />
-            </Link>
-            <Link
-              href="/"
-              className=" border rounded-full p-2 text-lg hover:border-rose-500 hover:text-rose-500 transition-all duration-200 ease-linear cursor-pointer"
-            >
-              <FaPinterest />
-            </Link>
+        
+     
+         
+           
           </div>
         </div>
         <div className=" grid grid-cols-[repeat(auto-fit,_minmax(140px,_1fr))] w-full gap-2">
@@ -270,7 +252,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-5 sm:py-4 py-3 flex items-center justify-between gap-2 min-[700px]:flex-row flex-col">
           <div>
             <p className="text-[#ffffffe6] text-[15px]">
-              কপিরাইট © 2024 চিত্রকর্ম সর্বস্বত্ব সংরক্ষিত
+              কপিরাইট © {new Date().getFullYear()} চিত্রকর্ম সর্বস্বত্ব সংরক্ষিত
             </p>
           </div>
           <div>

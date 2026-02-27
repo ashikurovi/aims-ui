@@ -55,15 +55,15 @@ interface TrackingOrderStatus {
 const getStatusColor = (status: string) => {
   switch (status.toLowerCase()) {
     case "delivered":
-      return "bg-green-100 text-green-800";
+      return "bg-emerald-100 text-emerald-800";
     case "pending":
-      return "bg-yellow-100 text-yellow-800";
+      return "bg-amber-50 text-amber-700";
     case "cancelled":
       return "bg-red-100 text-red-800";
     case "shipped":
-      return "bg-blue-100 text-blue-800";
+      return "bg-sky-100 text-sky-800";
     case "paid":
-      return "bg-purple-100 text-purple-800";
+      return "bg-emerald-50 text-emerald-700";
     default:
       return "bg-gray-100 text-gray-800";
   }
@@ -221,26 +221,26 @@ const Orders = () => {
   if (orders.length === 0) {
     return (
       <div className="w-full flex flex-col gap-5">
-        <div className="rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-orange-400 text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
+        <div className="rounded-2xl bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-400 text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="space-y-1.5">
-              <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-pink-100/90">
+              <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-emerald-100/90">
                 My account
               </p>
               <h2 className="text-xl md:text-2xl font-semibold">My orders</h2>
-              <p className="text-xs sm:text-sm text-pink-50/95 max-w-md">
+              <p className="text-xs sm:text-sm text-emerald-50/95 max-w-md">
                 আপনি এখনও কোনো অর্ডার করেননি। প্রথম অর্ডারের সাথে প্রিমিয়াম
                 অভিজ্ঞতা শুরু করুন।
               </p>
             </div>
             <div className="flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs sm:text-sm">
-              <FiPackage className="text-pink-100" />
+              <FiPackage className="text-emerald-100" />
               <span>অর্ডার হিস্টোরি এখানে দেখা যাবে</span>
             </div>
           </div>
         </div>
         <div className="flex items-center justify-center min-h-[220px]">
-          <div className="max-w-md w-full text-center space-y-4 rounded-2xl border border-dashed border-pink-200 bg-white/70 px-6 py-8">
+          <div className="max-w-md w-full text-center space-y-4 rounded-2xl border border-dashed border-emerald-200 bg-white/70 px-6 py-8">
             <p className="text-sm font-semibold text-gray-900">
               বর্তমানে কোনো অর্ডার পাওয়া যায়নি
             </p>
@@ -264,27 +264,27 @@ const Orders = () => {
 
   return (
     <div className="w-full flex flex-col gap-5">
-      <div className="rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-orange-400 text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
+      <div className="rounded-2xl bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-400 text-white shadow-md px-4 py-4 sm:px-5 sm:py-5">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="space-y-1.5">
-            <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-pink-100/90">
+            <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-emerald-100/90">
               My account
             </p>
             <h2 className="text-xl md:text-2xl font-semibold">My orders</h2>
-            <p className="text-xs sm:text-sm text-pink-50/95 max-w-md">
+            <p className="text-xs sm:text-sm text-emerald-50/95 max-w-md">
               আপনার সব অর্ডারের স্ট্যাটাস, পেমেন্ট এবং পণ্য তালিকা প্রিমিয়াম
               ভিউতে দেখুন।
             </p>
           </div>
           <div className="grid grid-cols-2 gap-2 w-full sm:w-auto">
             <div className="rounded-xl bg-white/10 px-3 py-2 flex items-center gap-2">
-              <FiPackage className="text-pink-50" />
+              <FiPackage className="text-emerald-50" />
               <span className="text-[11px] font-medium">
                 মোট অর্ডার {orders.length}
               </span>
             </div>
             <div className="rounded-xl bg-white/10 px-3 py-2 flex items-center gap-2">
-              <FiTruck className="text-pink-50" />
+              <FiTruck className="text-emerald-50" />
               <span className="text-[11px] font-medium">
                 ট্র্যাক করুন ডেলিভারি স্ট্যাটাস
               </span>
@@ -301,19 +301,19 @@ const Orders = () => {
             value={trackingId}
             onChange={(e) => setTrackingId(e.target.value)}
             placeholder="ট্র্যাকিং আইডি লিখুন"
-            className="w-full rounded-full border border-pink-200 bg-white/90 px-4 py-2 text-xs sm:text-sm text-gray-900 placeholder:text-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent"
+            className="w-full rounded-full border border-emerald-200 bg-white/90 px-4 py-2 text-xs sm:text-sm text-gray-900 placeholder:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:border-transparent"
           />
           <button
             type="submit"
             disabled={trackingLoading || !trackingId.trim()}
-            className="inline-flex items-center justify-center rounded-full bg-white/90 px-4 py-2 text-xs sm:text-sm font-semibold text-pink-600 hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+            className="inline-flex items-center justify-center rounded-full bg-white/90 px-4 py-2 text-xs sm:text-sm font-semibold text-emerald-700 hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
           >
             {trackingLoading ? "ট্র্যাক করা হচ্ছে..." : "অর্ডার ট্র্যাক করুন"}
           </button>
         </form>
 
         {trackingError && (
-          <p className="mt-2 text-[11px] sm:text-xs text-red-100">
+            <p className="mt-2 text-[11px] sm:text-xs text-red-100">
             {trackingError}
           </p>
         )}
@@ -321,37 +321,37 @@ const Orders = () => {
         {trackingResult && (
           <div className="mt-3 rounded-xl bg-white/10 px-3 py-2 text-[11px] sm:text-xs space-y-1">
             <p>
-              <span className="text-pink-100/80">Tracking ID:</span>{" "}
+              <span className="text-emerald-100/80">Tracking ID:</span>{" "}
               <span className="font-semibold">
                 {trackingResult.trackingId || trackingId}
               </span>
             </p>
             <p>
-              <span className="text-pink-100/80">Status:</span>{" "}
+              <span className="text-emerald-100/80">Status:</span>{" "}
               <span className="font-semibold">
                 {trackingResult.status?.toUpperCase()}
               </span>
             </p>
             {trackingResult.message && (
-              <p className="text-pink-100">{trackingResult.message}</p>
+              <p className="text-emerald-100">{trackingResult.message}</p>
             )}
             {trackingResult.shippingProvider && (
               <p>
-                <span className="text-pink-100/80">Provider:</span>{" "}
+                <span className="text-emerald-100/80">Provider:</span>{" "}
                 <span className="font-semibold">
                   {trackingResult.shippingProvider}
                 </span>
               </p>
             )}
             <p>
-              <span className="text-pink-100/80">Order ID:</span>{" "}
+              <span className="text-emerald-100/80">Order ID:</span>{" "}
               <span className="font-semibold">#{trackingResult.orderId}</span>
             </p>
 
             {trackingResult.statusHistory &&
               trackingResult.statusHistory.length > 0 && (
-                <div className="mt-2 border-t border-pink-100/30 pt-2">
-                  <p className="text-[10px] font-semibold text-pink-50 mb-1">
+                <div className="mt-2 border-t border-emerald-100/30 pt-2">
+                  <p className="text-[10px] font-semibold text-emerald-50 mb-1">
                     স্ট্যাটাস হিস্টোরি
                   </p>
                   <ul className="space-y-1">

@@ -186,11 +186,11 @@ const FlashSaleDetail = async ({ params }: FlashSaleDetailProps) => {
           </div>
 
           {/* Terms */}
-          <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <h4 className="font-semibold text-yellow-800 mb-2">
+          <div className="mt-8 p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
+            <h4 className="font-semibold text-emerald-800 mb-2">
               Terms & Conditions
             </h4>
-            <ul className="text-sm text-yellow-700 space-y-1">
+            <ul className="text-sm text-emerald-700 space-y-1">
               <li>• Limited time offer, subject to availability</li>
               <li>• Cannot be combined with other promotions</li>
               <li>• While stocks last</li>

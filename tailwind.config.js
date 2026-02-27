@@ -13,7 +13,8 @@ module.exports = {
         hindSiliguri: ["var(--font-hindSiliguri)"],
       },
       colors: {
-        primary: "#D31A7A",
+        // Brand primary color (green, matching AIMS Purified)
+        primary: "#008C45",
       },
     },
   },

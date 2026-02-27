@@ -4,7 +4,8 @@
 
 @layer base {
   :root {
-    --primary: 0, 0%, 0%;
+    /* Primary brand color (green) and accent */
+    --primary: 148, 100%, 27%;
     --secondary: 0, 84%, 60%;
   }
 }
@@ -13,7 +14,7 @@
 .btn-submit,
 button[type="submit"],
 .submit-btn {
-  background-color: #000000;
+  background-color: #008c45;
   color: #ffffff;
   padding: 12px 16px;
   border-radius: 8px;
@@ -30,7 +31,7 @@ button[type="submit"],
 .btn-submit:hover,
 button[type="submit"]:hover,
 .submit-btn:hover {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: #00763a;
 }
 
 .btn-cancel,
@@ -65,10 +66,10 @@ button[type="submit"]:hover,
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #000000;
+  background: #008c45;
   border-radius: 10px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #1a1a1a;
+  background: #00763a;
 }

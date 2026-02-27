@@ -4,6 +4,7 @@ export interface SystemUser {
   email: string;
   companyName: string;
   companyId: string;
+  role?: string;
   companyLogo?: string | null;
   phone?: string | null;
   branchLocation?: string | null;

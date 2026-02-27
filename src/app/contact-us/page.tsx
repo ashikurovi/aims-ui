@@ -459,30 +459,10 @@ const ContactUs = () => {
                 খোলা থাকে। জরুরি প্রয়োজনে ফোন করুন।
               </p>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-4 text-base sm:text-lg">
-                <Link
-                  href="/"
-                  className="border rounded-full p-1.5 sm:p-2 hover:bg-white/10"
-                >
-                  <FaFacebookF />
-                </Link>
-                <Link
-                  href="/"
-                  className="border rounded-full p-1.5 sm:p-2 hover:bg-white/10"
-                >
-                  <FaXTwitter />
-                </Link>
-                <Link
-                  href="/"
-                  className="border rounded-full p-1.5 sm:p-2 hover:bg-white/10"
-                >
-                  <FaInstagram />
-                </Link>
-                <Link
-                  href="/"
-                  className="border rounded-full p-1.5 sm:p-2 hover:bg-white/10"
-                >
-                  <FaTiktok />
-                </Link>
+          
+            
+             
+             
                 <a
                   href={(() => {
                     const raw = (companyInfo?.phone || "01774617452").replace(
