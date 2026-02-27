@@ -1,0 +1,15 @@
+
+
+services:
+  app:
+    container_name: chitrokormo-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+      # Add other environment variables here if needed
+      # - NEXT_PUBLIC_API_URL=http://your-api-url.com
