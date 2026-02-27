@@ -4,7 +4,7 @@
 
 export const API_CONFIG = {
   baseURL: "https://e-api-omega.vercel.app",
-  companyId: "COMP-000001",
+  companyId: "COMP-000002",
 };
 
 /**
