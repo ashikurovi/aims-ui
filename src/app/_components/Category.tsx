@@ -1,5 +1,6 @@
 import { getCategories } from "../../lib/api-services";
 import type { Category } from "../../types/category";
+import { API_CONFIG } from "../../lib/api-config";
 import Image from "next/image";
 import Link from "next/link";
 import EmblaCarousel from "../../components/shared/EmblaCarousel";
@@ -9,7 +10,7 @@ const Category = async () => {
   // or create public endpoints for categories
   let categories: Category[] = [];
   try {
-    categories = await getCategories('COMP-000001');
+    categories = await getCategories(API_CONFIG.companyId);
   } catch (error) {
     console.error("Failed to load categories:", error);
     // categories will remain empty array

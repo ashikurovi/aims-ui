@@ -12,9 +12,13 @@ const TopProduct = async () => {
   const companyId = API_CONFIG.companyId;
   const section = await getTopProducts(companyId);
   console.log("section", section);
-  const left = section?.leftImage || img_1;
-  const right = section?.rightImage || img_2;
-  const items = section?.carouselItems || [];
+  if (!section || (!section.leftImage && !section.rightImage && (!section.carouselItems || section.carouselItems.length === 0))) {
+    return null;
+  }
+
+  const left = section.leftImage || img_1;
+  const right = section.rightImage || img_2;
+  const items = section.carouselItems || [];
 
   return (
     <section className="  max-w-7xl mx-auto px-5 md:pt-10 pt-5 overflow-hidden">

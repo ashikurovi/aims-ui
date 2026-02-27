@@ -1,11 +1,12 @@
 import EmblaCarousel from "../../components/shared/EmblaCarousel";
 import { Banner, getBanners } from "../../lib/api-services";
+import { API_CONFIG } from "../../lib/api-config";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const HeroCarousel: React.FC = async () => {
-  const banners: Banner[] = await getBanners("COMP-000001").catch(() => []);
+  const banners: Banner[] = await getBanners(API_CONFIG.companyId).catch(() => []);
   const activeBanners = (banners ?? []).filter((banner: Banner) => banner.isActive);
 
   if (activeBanners.length === 0) {

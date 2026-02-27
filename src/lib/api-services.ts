@@ -232,7 +232,7 @@ export async function getProducts(
 ): Promise<Product[]> {
     try {
         const params = new URLSearchParams();
-        const companyIdParam = companyId || "COMP-000001";
+        const companyIdParam = companyId || API_CONFIG.companyId;
         if (companyIdParam) params.append("companyId", companyIdParam);
 
         const response = await axios.get<ApiResponse<Product[]>>(
@@ -731,7 +731,7 @@ export async function createOrder(
  */
 export async function getBanners(companyId?: string): Promise<Banner[]> {
     try {
-        const companyIdParam = companyId || 'COMP-000001';
+        const companyIdParam = companyId || API_CONFIG.companyId;
         const url = getApiUrl(`/banners/public?${new URLSearchParams({ companyId: companyIdParam })}`);
         const res = await fetch(url, { next: { revalidate: 60 } });
         if (!res.ok) return [];
