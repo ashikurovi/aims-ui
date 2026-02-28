@@ -10,6 +10,7 @@ const nextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "res.cloudinary.com" },
       { protocol: "https", hostname: "i.ibb.co" },
+      { protocol: "https", hostname: "g8izugtr3lsr8cfx.public.blob.vercel-storage.com", pathname: "/uploads/**" },
       // Allow CDN used by backend for product images (both http and https just in case)
       { protocol: "https", hostname: "squadlog-cdn.up.railway.app", pathname: "/uploads/**" },
       { protocol: "http", hostname: "squadlog-cdn.up.railway.app", pathname: "/uploads/**" },
