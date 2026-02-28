@@ -13,6 +13,7 @@ const nextConfig = {
       { protocol: "https", hostname: "g8izugtr3lsr8cfx.public.blob.vercel-storage.com", pathname: "/uploads/**" },
       // Allow CDN used by backend for product images (both http and https just in case)
       { protocol: "https", hostname: "squadlog-cdn.up.railway.app", pathname: "/uploads/**" },
+      { protocol: "https", hostname: "g8izugtr3lsr8cfx.public.blob.vercel-storage.com" },
       { protocol: "http", hostname: "squadlog-cdn.up.railway.app", pathname: "/uploads/**" },
       { protocol: "https", hostname: "e-cdn.vercel.app", pathname: "/uploads/**" },
       { protocol: "http", hostname: "e-cdn.vercel.app", pathname: "/uploads/**" },
